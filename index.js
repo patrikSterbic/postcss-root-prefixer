@@ -19,13 +19,13 @@ module.exports = postcss.plugin('postcss-root-prefixer', (opts = {}) => {
   }
 
   return (root, result) => {
-    const filePath = result.opts.to;
+    const filePath = result.opts.from;
 
     if (fileNamePattern && !fileNamePattern.test(filePath)) {
       return;
     }
 
-    root.walkRules(rule => {
+    root.walkRules((rule) => {
       if (rule.parent.selector && checkParentHasPrefix(rule, prefix)) {
         return rule;
       }
