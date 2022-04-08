@@ -35,6 +35,7 @@ module.exports = postcss.plugin("postcss-root-prefixer", (opts = {}) => {
           !rule.selector.includes("body") &&
           !rule.selector.includes(":root") &&
           !rule.selector.includes("*") &&
+          !rule.selector.includes(".cwp")
         ) {
           let specificSelectors = rule.selector;
           const prefixedSelectorsPart = specificSelectors
